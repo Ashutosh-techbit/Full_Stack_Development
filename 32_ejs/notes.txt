@@ -1,0 +1,6 @@
+ <% for(let name of followers) {%>
+          <li><%= name %></li>
+        <%}%> 
+
+
+includes is used to add sub-template like html header and footer in a webpage

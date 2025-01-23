@@ -1,0 +1,3 @@
+============Get ans Post Method=========
+Get - used to get some response , data sent in query strings(limited , string data and visible in url)
+Post - used to Post something(for create/write/update) , data sent via http body(any data type)

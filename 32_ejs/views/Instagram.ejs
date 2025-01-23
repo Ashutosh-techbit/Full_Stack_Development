@@ -1,0 +1,26 @@
+<!-- "includes" used to add common sub-templates(like header , footer) in web pages -->
+<%- include("includes/head.ejs")%> 
+
+<body>
+    <h1>Instagram Profile</h1>
+    <h2>This profile belongs to <%= data.name %></h2>
+    <button>follow</button>
+    <button>Message</button>
+
+    <h2>followers : <%= data.followers %> </h2>
+    <h2>following : <%= data.following %></h2>
+    
+    <% for(let post of data.posts) {%>
+ 
+        <img src="post.image" alt="error">
+        <h6><%= post.likes %></h6>
+        <h6><%= post.comments %></h6>
+
+        <%}%>
+   
+<%- include("includes/footer.ejs")%>   
+
+
+    
+</body>
+</html>
