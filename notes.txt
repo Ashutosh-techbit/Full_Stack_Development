@@ -1,3 +1,17 @@
+=====================Express===============
+
+const express = require("express")
+const app = express()  //app is the object through which backend code will develop using it default functions like listen , port , param etc.
+
+let port = 8080; // ports are the logical endpoints of a network connection that is used to exchange information between web server and a web client
+
+res.send(//content); // in content text , HTML code , objects can be send 
+
+
+
+
+
+
 ============Get ans Post Method=========
 Get - used to get some response , data sent in query strings(limited , string data and visible in url)
 Post - used to Post something(for create/write/update) , data sent via http body(any data type)
