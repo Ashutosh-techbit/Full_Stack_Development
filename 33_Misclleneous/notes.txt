@@ -1,0 +1,9 @@
+---------------------------------------------------------------------
+|  Feature    	| GET	              | POST                        |
+---------------------------------------------------------------------
+|Purpose    	| Retrieve data	      | Submit data                 |
+|Data Location  | Query string (URL)  | Request body                | 
+|Cacheable	    | Yes	              | No                          |
+|Idempotent	    | Yes	              | No                          |
+|Use Case	    | Fetching data	      | Creating or submitting data |
+---------------------------------------------------------------------
