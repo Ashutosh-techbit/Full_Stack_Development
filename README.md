@@ -1,3 +1,5 @@
+# Each folder contains its own notes file access for brief details
+
 # Express.js Basics
 
 A quick guide to getting started with Express.js, a lightweight and flexible Node.js framework for building web applications and APIs.
