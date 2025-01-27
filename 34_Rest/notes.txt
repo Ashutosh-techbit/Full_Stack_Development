@@ -1,0 +1,9 @@
+=============================================REST====================================================================== 
+Representational state transfer 
+Rest is an architecture style that defines a set of constraints to be used for creating web services.
+Restful API's -> APIs(Application Programming Interface) which satisfies Rest rules , used to perform CRUD operations
+
+CRUD - Create , Read , Update , Delete
+
+
+
