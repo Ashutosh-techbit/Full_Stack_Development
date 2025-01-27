@@ -5,5 +5,9 @@ Restful API's -> APIs(Application Programming Interface) which satisfies Rest ru
 
 CRUD - Create , Read , Update , Delete
 
-
+POST   -  (create a record)
+GET    -  (retrieve a record)
+PUT    -  (update a record)
+PATCH  -  (update specific record)
+DELETE -  (delete the record)
 
