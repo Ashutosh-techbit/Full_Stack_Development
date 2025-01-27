@@ -7,3 +7,20 @@
 |Idempotent	    | Yes	              | No                          |
 |Use Case	    | Fetching data	      | Creating or submitting data |
 ---------------------------------------------------------------------
+
+=============OOPS======================
+1. Object Prototypes ->  An object prototype in JavaScript is a mechanism that allows objects to inherit    properties and methods from other objects. Each object has an internal link (arr.__proto__) to its prototype, forming a prototype chain. This enables shared behavior and reuse of code across multiple objects.
+
+arr.__proto__ (reference)
+Array.prototype (actual object) 
+
+2.Factory Functions -> //functions that creates objects and every object creates its own copy , hence not space efficient
+
+//to solve this space problem new Keyword is used to create object and prototype is used to define properties
+
+3. New Keyword => The new operator lets developers create an instance of a user-defined object type or of one of the built-in object types that has a constructor function.
+
+-> constructor
+A class or function that specifies the type of the object instance. The expression can be anything with sufficient precedence, including an identifier, a property access, or another new expression, but optional chaining is not allowed.
+
+4. Inheritance - using functionality of existing class into another using extends keyword and super(to call parent class constructor). 
