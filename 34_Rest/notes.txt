@@ -28,3 +28,6 @@ res.redirect('../login')
 npm install uuid
 const { v4: uuidv4 } = require('uuid');
 uuidv4() -> function
+
+
+========> Send PUT ,PATCH ,DELETE request from html form using method-override(npm package) as HTML form by default only send get/post request

@@ -3,9 +3,11 @@ const app = express();
 const port = 8080;
 const path = require("path");
 const { v4: uuidv4 } = require('uuid');
+var methodOverride = require('method-override')
 
 // express.urlencoded({extended: true}): This middleware parses incoming requests with URL-encoded payloads (e.g., data from HTML forms). The {extended: true} option allows for rich objects and arrays to be encoded into the URL-encoded format using the qs library, while {extended: false} uses the querystring library, which is simpler and less powerful.
 app.use(express.urlencoded({extended:true}));
+app.use(methodOverride('_method'))
 
 
 // __dirname => Node.js variable that refers to the directory where the current script is located.
@@ -78,7 +80,16 @@ app.patch("/posts/:id",(req,res)=>{
     let post = posts.find((p)=> id===p.id);
     post.content  = newcontent;
     res.send("update success by patch")
+    console.log(post.content)
     
+})
+
+//edit post content
+app.get("/posts/:id/edit",(req,res)=>{
+    let {id}=req.params; //get id for update
+    let post = posts.find((p)=> id===p.id);
+    res.render("edit.ejs",{post});
+    // res.send("patch request success")
 })
 
 
