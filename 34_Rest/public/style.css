@@ -1,0 +1,22 @@
+*{
+    background: #ffffff;
+}
+
+.head , .user , .content{
+    color: rgb(122, 1, 1);
+}
+
+.head{
+    text-align: center;
+     background: #ffc1e5;
+     text-decoration: underline;
+     
+}
+
+.post , .user , .content , .postid{
+    background: #ffe4e4;
+    color: rgb(172, 51, 51);
+    border-radius: 20px;
+    padding: 2px;
+    margin: 8px;
+}
