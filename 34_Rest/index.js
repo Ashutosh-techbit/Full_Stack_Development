@@ -76,21 +76,29 @@ app.get("/posts/:id",(req,res)=>{
 //update existing post
 app.patch("/posts/:id",(req,res)=>{
     let {id}=req.params; //get id for update
-    let newcontent = req.body.params; //new content 
+    let newcontent = req.body.content; //new content 
     let post = posts.find((p)=> id===p.id);
     post.content  = newcontent;
+    
+    res.redirect("/posts")
     res.send("update success by patch")
-    console.log(post.content)
+    // console.log(post.content)
 })
 
 //edit post content
 app.get("/posts/:id/edit",(req,res)=>{
     let {id}=req.params; //get id for update
-    let post = posts.find((p)=> id===p.id);
+    let post = posts.find((p)=> id === p.id);
     res.render("edit.ejs",{post});
     // res.send("patch request success")
 })
 
+//deleting post
+app.delete("/posts/:id",(req,res)=>{
+    let {id}=req.params;
+    posts = posts.filter((p)=> id != p.id);
+    res.redirect("/posts");
+})
 
 app.listen(port,() => {
     console.log(`server started at ${port}`)
