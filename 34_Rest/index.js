@@ -81,7 +81,6 @@ app.patch("/posts/:id",(req,res)=>{
     post.content  = newcontent;
     res.send("update success by patch")
     console.log(post.content)
-    
 })
 
 //edit post content
