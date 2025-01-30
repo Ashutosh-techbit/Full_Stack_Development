@@ -1,0 +1,103 @@
+Database - collection of data that can be access easily
+
+why?
+1. can store large data
+2. security , scalaibilty etc.
+3. ease of insert , delete or update data
+
+--------------------------------------------------------------------------------------------------------
+                     SQL                   vs                      NOSQL
+--------------------------------------------------------------------------------------------------------
+                                           |
+Relation Database (data stored in          |    Non Relation Database (data stored in document , 
+tables)                                    |    key-value , graph etc)
+                                           |
+Relation - tables                          |   e.g.  mongodb , cassendra 
+e.g. - mysql , oracle , postgreSql         |
+etc.                                       |
+--------------------------------------------------------------------------------------------------------
+
+
+SQL -  A programming language to interact with Relation Database
+
+tables - Relation
+row - tuple 
+column - field
+
+//====================MySQL======================
+
+CREATE DATABASE College;
+create database xyz_company;
+
+CREATE DATABASE if not exists College;
+
+delete database ->
+DROP database xyz_company;
+DROP database if exists xyz_company;
+
+show databases;
+show tables;
+
+use database ->
+use college;
+
+
+DATA TYPES :- [char(fixed) , varchar(variable) , blob , int ,tinyint , bigint ,bit , float, double , boolean , date , year]
+
+unsigned(positive) , signed(negative)
+
+CREATE TABLE student (
+   rollno INT,
+   name varchar(30),
+   age INT
+);
+
+INSERT INTO student 
+VALUES (101 , "ashu", 20),
+(102 , "eve"  , 19);
+
+SELECT * from student;
+
+=========================>CONSTRAINTS===================================
+1. NOT NULL - calumns cannot be a null value
+2. UNIQUE - two values in a column cannot be same 
+3. DEFAULT - intializing a default value (e.g. follower int default 0;)
+4. CHECK - it will limit a value in a column (e.g. CONSTRAINTS age CHECK (age >= 18))
+5. Primary Key - UNIQUE and NOT NULL
+6. foreign key - prevent actions that will destroy links between two tables 
+
+====================> SAMPLE COMMANDS OPERATION <=================
+
+CREATE DATABASE if not exists instagram;
+use instagram;
+
+create table user(
+id int primary Key,
+age int ,
+name varchar(30) not null,
+email varchar(50) unique,
+followers int default 0,
+following int,
+constraint check (age >=13)
+);
+
+create table post(
+ id int primary key,
+ content varchar(30),
+ user_id int ,
+ foreign key (user_id) references user(id)
+);
+
+INSERT INTO user 
+(id, age, name, email, followers, following) 
+VALUES 
+(1, 19, "adam", "adam@yahoo.in", 123, 145),
+ (2, 25, "bob", "bob123@gmail.com", 200, 200), 
+ (3, 26, "casey", "casey@email.com", 300, 306), 
+ (4, 26, "case", "case@email.com", 300, 306), 
+(4, 27, "donald", "donald@gmail.com", 200, 105);
+
+
+select id , age , name from user;
+select * from user;
+select distinct age from user;
