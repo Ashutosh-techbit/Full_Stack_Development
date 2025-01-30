@@ -1,4 +1,4 @@
-# Each folder contains its own notes file access for brief details
+# Each folder contains NOTES file , Access for brief details
 
 # Express.js Basics
 
