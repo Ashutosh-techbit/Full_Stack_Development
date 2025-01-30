@@ -97,7 +97,6 @@ VALUES
  (4, 26, "case", "case@email.com", 300, 306), 
 (4, 27, "donald", "donald@gmail.com", 200, 105);
 
-
 select id , age , name from user;
 select * from user;
 select distinct age from user;
