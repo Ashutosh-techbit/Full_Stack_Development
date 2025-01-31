@@ -3,3 +3,18 @@
 2. Comparison operators -> = , != , > , < , <= ,>=
 3. Logical operators -> AND , OR , NOT , IN , BETWEEN , ALL , LIKE , ANY
 4. Bitwise operators -> & , |
+
+
+select *
+from user
+where age>25;
+
+//only shows 1 row
+select *
+from user
+where age>25
+limit 1;
+
+//orderby
+select * from user
+order by followers asc
