@@ -9,12 +9,62 @@ select *
 from user
 where age>25;
 
+================LIMIT=============
 //only shows 1 row
 select *
 from user
 where age>25
 limit 1;
 
-//orderby
+//======================orderby====================
 select * from user
 order by followers asc
+
+select * from user
+order by followers desc
+
+
+==========AGGREGATE FUNCTION====================
+COUNT() , MIN() , MAX() , AVG() , SUM()
+
+
+==========groupby====================
+select age , count(id)
+from user 
+group by (age);
+
+=================HAVING================
+//having is like where clause but for grouping
+select age , max(followers)
+from user 
+group by (age)
+having age <26;
+
+================UPDATES=======================
+
+//use this bcz mysql do not allow updates by default
+SET SQL_SAFE_UPDATES=0;
+
+=====================ALTER====================
+ALTER TABLE user
+add column city varchar(20) default "delhi";
+
+alter table user
+drop column age;
+
+select * from user;
+
+alter table instauser
+rename to user;
+
+alter table user 
+change column followers subs int default 0;
+
+
+
+==========truncate vs drop=========================
+
+//drop delete table schema and data i.e. no insertion can be done
+//truncate only delete data i.e. insertion can be done
+drop table post;
+truncate table user;
