@@ -1,0 +1,5 @@
+================WHERE Clause=============
+1. Arithmetic operators -> + , - , * , / , %
+2. Comparison operators -> = , != , > , < , <= ,>=
+3. Logical operators -> AND , OR , NOT , IN , BETWEEN , ALL , LIKE , ANY
+4. Bitwise operators -> & , |
