@@ -9,7 +9,13 @@ const connection =  mysql.createConnection({
 });
 
 
-try{connection.query("SHOW TABLES",(err,result)=>{
+// let q = "SHOW TABLES";
+let q = "INSERT INTO USER(id , name , email , password) VALUES ?";
+let user = [["124","harsh","harsh@gmail.com","hi!3"],["125","yash","yash@gmail.com","hlo234"]];
+
+
+//result is in array form can traverse , length()
+try{connection.query(q,[user],(err,result)=>{
   if(err) throw err;
   console.log(result); 
 });
