@@ -1,0 +1,20 @@
+fakerjs - to create fake database
+
+using SQL by following method :-
+1. mysql2 - to access database and work on sql
+2. to access database and work on sql can also be done by CLI 
+        command to use SQL in CLI
+        1. cd Program Files\MySQL\MySQL Server 8.0\bin -> in c drive
+        2. mysql -u root -p
+
+        to quit connection type quit
+
+
+3. to access database and work on sql can also be done by MySQL workbench
+4. Create a source schema file 
+
+
+
+
+
+
