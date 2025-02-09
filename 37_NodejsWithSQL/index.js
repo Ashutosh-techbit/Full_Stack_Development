@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const methodOverride = require("method-override");
+const { v4: uuidv4 } = require("uuid");
 
 const connection = mysql.createConnection({
   host: "localhost",
@@ -65,6 +66,29 @@ app.get("/", (req, res) => {
   console.log("welcome to HomePage");
 });
 
+//create new user
+app.get("/user/new", (req, res) => {
+  res.render("new.ejs");
+});
+
+app.post("/user/new", (req, res) => {
+  let { username, email, password } = req.body;
+  let id = uuidv4();
+  //Query to Insert New User
+  let q = `INSERT INTO user (id, name, email, password) VALUES ('${id}','${username}','${email}','${password}') `;
+
+  try {
+    connection.query(q, (err, result) => {
+      if (err) throw err;
+      console.log("added new user");
+      res.redirect("/user");
+    });
+  } catch (err) {
+    res.send("some error occurred");
+  }
+});
+
+
 //show all user route
 app.get("/user", (req, res) => {
   let q = "SELECT * FROM user";
@@ -98,6 +122,7 @@ app.get("/user/:id/edit", (req, res) => {
   }
 });
 
+//updated edited data in database
 app.patch("/user/:id", (req, res) => {
   let { id } = req.params;
   let { password: formPass, username: newUsername } = req.body;
@@ -130,9 +155,11 @@ app.patch("/user/:id", (req, res) => {
   // res.send(updated)
 });
 
+
 app.listen("8080", () => {
   console.log("server is listening to port 8080");
 });
+
 
 // //result is in array form can traverse , length()
 // // try{connection.query(q,[user],(err,result)=>{
