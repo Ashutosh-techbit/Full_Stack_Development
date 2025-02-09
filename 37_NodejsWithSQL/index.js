@@ -66,27 +66,27 @@ app.get("/", (req, res) => {
   console.log("welcome to HomePage");
 });
 
-//create new user
-app.get("/user/new", (req, res) => {
-  res.render("new.ejs");
-});
+// //create new user
+// app.get("/user/new", (req, res) => {
+//   res.render("new.ejs");
+// });
 
-app.post("/user/new", (req, res) => {
-  let { username, email, password } = req.body;
-  let id = uuidv4();
-  //Query to Insert New User
-  let q = `INSERT INTO user (id, name, email, password) VALUES ('${id}','${username}','${email}','${password}') `;
+// app.post("/user/new", (req, res) => {
+//   let { username, email, password } = req.body;
+//   let id = uuidv4();
+//   //Query to Insert New User
+//   let q = `INSERT INTO user (id, name, email, password) VALUES ('${id}','${username}','${email}','${password}') `;
 
-  try {
-    connection.query(q, (err, result) => {
-      if (err) throw err;
-      console.log("added new user");
-      res.redirect("/user");
-    });
-  } catch (err) {
-    res.send("some error occurred");
-  }
-});
+//   try {
+//     connection.query(q, (err, result) => {
+//       if (err) throw err;
+//       console.log("added new user");
+//       res.redirect("/user");
+//     });
+//   } catch (err) {
+//     res.send("some error occurred");
+//   }
+// });
 
 
 //show all user route
