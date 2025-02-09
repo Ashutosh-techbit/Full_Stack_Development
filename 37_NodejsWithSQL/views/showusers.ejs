@@ -25,7 +25,7 @@
             <td><%= user.email %></td>
             <td><%= user.name %></td>
             <td>
-                <form action="/user/edit/<%=user.id%>" method="GET">
+                <form action="/user/<%=user.id%>/edit" method="GET">
                     <button>Edit username</button>
                 </form>
             </td>

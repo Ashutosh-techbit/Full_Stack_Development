@@ -27,6 +27,7 @@ let getRandomUser = ()=> {
 }
 
 //arrow fucntion contains return a array to create fake data
+
 // let getRandomUser = ()=> {
 //   return [
 //      faker.string.uuid(),
@@ -54,6 +55,7 @@ let getRandomUser = ()=> {
 // connection.end(); //to end connection after execution
 
 //home route
+
 app.get("/",(req,res)=>{
   let q = "SELECT count(*) FROM user"
   try{
@@ -91,8 +93,9 @@ app.get("/user",(req,res)=>{
 })
 
 //edit user
-app.get("/user/edit/:id",(req,res)=>{
+app.get("/user/:id/edit",(req,res)=>{
   let {id} = req.params;
+  
   res.render("edit.ejs",{id})
 })
 
