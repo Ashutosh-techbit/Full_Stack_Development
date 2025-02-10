@@ -1,0 +1,75 @@
+mongosh - to start shell
+cls - clear shell
+help - all commands
+quit - quit shell
+db - show current database
+
+show dbs; - all databases
+use db_name - create temporary db and to create it permanent insert data in it
+test - temporary db by mongo
+
+Data given by user is in JSON and mongo store that data in BSON
+
+-------------------------------------------------------------------------------------------------------------------------------------
+Feature               |  	JSON	                                 |               BSON
+-------------------------------------------------------------------------------------------------------------------------------------
+Format Type	          |  Text-based (human-readable)                 |	Binary-based (machine-readable)
+Readability 	      |  Yes, easily readable by humans              |	No, not human-readable
+Data Types Supported  |	Strings, numbers, booleans, arrays, null	 |  All JSON types + Date, Binary, ObjectId, and others
+Space Efficiency      |	Less efficient for complex data types	     |  More efficient due to binary encoding
+Performance           |	Slower parsing and retrieval	             |  Faster parsing and retrieval, especially for large data
+Use Case	          |  Data exchange between client and server	 |  Data storage, especially in MongoDB
+Compression           |	No built-in compression                      | 	More compact due to binary encoding
+Support for Large Data|	JSON may struggle with very large data	     |  BSON supports large documents and binary data natively
+-------------------------------------------------------------------------------------------------------------------------------------
+
+MongoDB store data in documents(BSON docs)
+Collection - mongo store documents in Collection
+
+----------------------------CRUD------------------
+
+-----------------------------CREATE-------------------------------------
+db.CollectionName.insertOne({key:value,name:"eve",age:34}); -insert data(document) and assign a unique id to a document
+
+//show data
+db.CollectionName.find() - returns all data in Collection
+
+//query based find
+db.CollectionName.find({key:value}) - returns cursor i.e. reference to original document inside an array
+db.student.findOne({key:value}) -  returns only single data Object from multiples , returns the original document
+
+//operators of MongoDB $gt , $eq , $lt etc.- learn from official websiite
+// Case sensitive
+
+
+---------------------------------------READ----------------------------------------
+db.student.find({name:{$eq:"ash"}}) //equal to
+db.student.find({name:{$in : ["ash","john"]}}) //in given array
+
+//logical OR operators
+db.student.find({$or : [{name:{$eq:"ash"}},{marks:{$eq:33}}]})
+
+
+---------------------------------UPDATE----------------------------------------------
+//update existence data - 
+ db.student.updateOne({name:"ash"},{$set:{city:"noida"}})
+ db.student.updateMany({name:"ash"},{$set:{city:"gurgaon"}})
+
+//replace a document with all new key:values pairs
+  db.student.replaceOne({name:"eve"},{name:"tillu",class:12,city:"mumbai"})
+
+//nesting in key:value pairs
+{
+    name :{firstname:"ashu" , lastname :"bansal"}
+}
+db.student.find("name.surname":"bansal");
+
+---------------------------------DELETE--------------------------------------------------------
+//delete data
+db.student.deleteOne({name:"ash"})
+
+db.student.deleteMany({"marks":{$lt:23}})
+db.student.deleteMany({}) //delete all data
+
+db.dropDatabase // delete whole database
+
