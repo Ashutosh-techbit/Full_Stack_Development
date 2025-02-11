@@ -71,5 +71,5 @@ db.student.deleteOne({name:"ash"})
 db.student.deleteMany({"marks":{$lt:23}})
 db.student.deleteMany({}) //delete all data
 
-db.dropDatabase // delete whole database
+db.dropDatabase() // delete whole database
 

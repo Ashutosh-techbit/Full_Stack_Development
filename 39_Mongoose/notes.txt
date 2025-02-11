@@ -1,0 +1,37 @@
+==========================================MONGOOSE=========================================
+-> A library that creates connection between Mongodb and Nodejs application.
+-> It works on ODM(object data modelling).
+
+============================================================================================================================================
+Installation:-
+============================================================================================================================================
+npm i Mongoose
+
+
+============================================================================================================================================
+                                                Create connection
+============================================================================================================================================
+async function main() {
+    await mongoose.connect('mongodb://127.0.0.1:27017/test'); //27017 is the default mongodb port
+}
+============================================================================================================================================
+                                              Schema Creation
+============================================================================================================================================
+const userSchema = new mongoose.Schema({
+    name:String,
+    city:String,
+    age:Number,
+})
+
+
+
+
+
+
+
+============================================================================================================================================
+
+
+
+--------------------------operation buffering-----------------------
+In Mongoose, "operation buffering" refers to the ability to start using your Mongoose models to interact with the database immediately, even before the connection to MongoDB is fully established, essentially queuing up operations until the connection is ready to execute them; this is a feature that allows you to start querying data without waiting for the connection to be completely set up. 
