@@ -28,29 +28,29 @@ const User = mongoose.model("User",userSchema);
 
 
 //----------------------------------insert data------------------------------------------------------------
-// const user1 = new User({
-//     name : "ashu",
-//     city :"agra",
-//     age :32,
-// })
-// user1.save() //asynchronous api to save data to database
+const user1 = new User({
+    name : "ashu",
+    city :"agra",
+    age :32,
+})
+user1.save() //asynchronous api to save data to database
 
-// const user2 = new User({
-//     name : "eve",
-//     city :"delhi",
-//     age :22,
-// })
-// user2.save()
-// .then(res=>console.log(res))
-// .catch(err=>console.log(err))
+const user2 = new User({
+    name : "eve",
+    city :"delhi",
+    age :22,
+})
+user2.save()
+.then(res=>console.log(res))
+.catch(err=>console.log(err))
 
 
 //---------------------------------------------------------------------Insert mulitple data queries---------------------------------------------------------------------
-// User.insertMany([
-//     {name:"yash",city:"agra",age:"22"},
-//     {name:"josh",city:"agra",age:"12"},
-//     {name:"adam",city:"delhi",age:"54"}
-// ])
+User.insertMany([
+    {name:"yash",city:"agra",age:"22"},
+    {name:"josh",city:"agra",age:"12"},
+    {name:"adam",city:"delhi",age:"54"}
+])
 
 
 
@@ -60,47 +60,47 @@ const User = mongoose.model("User",userSchema);
 // ============================================================================================================================================
 
 
-// User.find({}).then(res=>console.log(res)).catch(err=>console.log(err))
+User.find({}).then(res=>console.log(res)).catch(err=>console.log(err))
 
 
-// User.find({age:{$lt:32}}) //less than
-// .then(res=>console.log(res))
-// .catch(err=>console.log(err))
+User.find({age:{$lt:32}}) //less than
+.then(res=>console.log(res))
+.catch(err=>console.log(err))
 
 
-// User.findOne({age:{$lt:32}}) //less than and only first one
-// .then(res=>console.log(res))
-// .catch(err=>console.log(err))
+User.findOne({age:{$lt:32}}) //less than and only first one
+.then(res=>console.log(res))
+.catch(err=>console.log(err))
 
-// User.findById("67ab2a5725b0e8a9c2b54dec") // find using id
-// .then(res=>console.log(res))
-// .catch(err=>console.log(err))
+User.findById("67ab2a5725b0e8a9c2b54dec") // find using id
+.then(res=>console.log(res))
+.catch(err=>console.log(err))
 
 
 // ============================================================================================================================================
 //                                                       UPDATE
 // ============================================================================================================================================
 
-// //here the name with ashu is set to age=20
-// User.updateOne({name:"ashu"},{age:20})
-// .then(res=>console.log(res))
-// .catch(err=>console.log(err))
+//here the name with ashu is set to age=20
+User.updateOne({name:"ashu"},{age:20})
+.then(res=>console.log(res))
+.catch(err=>console.log(err))
 
-// //here first the name with ashu is find and print and then age set to 20
-// //print old result
-// User.findOneAndUpdate({name:"ashu"},{age:21})
-// .then(res=>console.log(res))
-// .catch(err=>console.log(err))
+//here first the name with ashu is find and print and then age set to 20
+//print old result
+User.findOneAndUpdate({name:"ashu"},{age:21})
+.then(res=>console.log(res))
+.catch(err=>console.log(err))
 
-// //to print updated result after updation
-// //print new result by using new(option) which is by deafult false , if we make it true it will print updated result
-// User.findOneAndUpdate({name:"ashu"},{age:21},{new:true})
-// .then(res=>console.log(res))
-// .catch(err=>console.log(err))
+//to print updated result after updation
+//print new result by using new(option) which is by deafult false , if we make it true it will print updated result
+User.findOneAndUpdate({name:"ashu"},{age:21},{new:true})
+.then(res=>console.log(res))
+.catch(err=>console.log(err))
 
-// User.findById({name:"ashu"},{age:21},{new:true})
-// .then(res=>console.log(res))
-// .catch(err=>console.log(err))
+User.findById({name:"ashu"},{age:21},{new:true})
+.then(res=>console.log(res))
+.catch(err=>console.log(err))
 
 
 // ============================================================================================================================================
