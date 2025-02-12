@@ -1,13 +1,13 @@
 {
-  "name": "full_stack_development",
+  "name": "39_mongoose",
   "version": "1.0.0",
-  "description": "-----\r # Express.js Basics",
-  "main": "31_express.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
     "mongoose": "^8.10.0"
   }

@@ -46,11 +46,11 @@ const User = mongoose.model("User",userSchema);
 
 
 //---------------------------------------------------------------------Insert mulitple data queries---------------------------------------------------------------------
-User.insertMany([
-    {name:"yash",city:"agra",age:"22"},
-    {name:"josh",city:"agra",age:"12"},
-    {name:"adam",city:"delhi",age:"54"}
-])
+// User.insertMany([
+//     {name:"yash",city:"agra",age:"22"},
+//     {name:"josh",city:"agra",age:"12"},
+//     {name:"adam",city:"delhi",age:"54"}
+// ])
 
 
 
@@ -59,4 +59,58 @@ User.insertMany([
 //         .find() - returns a query objection not a promise but we can still use .then() with it
 // ============================================================================================================================================
 
-User.find({}).then(res=>console.log(res)).catch(err=>console.log(err))
+
+// User.find({}).then(res=>console.log(res)).catch(err=>console.log(err))
+
+
+// User.find({age:{$lt:32}}) //less than
+// .then(res=>console.log(res))
+// .catch(err=>console.log(err))
+
+
+// User.findOne({age:{$lt:32}}) //less than and only first one
+// .then(res=>console.log(res))
+// .catch(err=>console.log(err))
+
+// User.findById("67ab2a5725b0e8a9c2b54dec") // find using id
+// .then(res=>console.log(res))
+// .catch(err=>console.log(err))
+
+
+// ============================================================================================================================================
+//                                                       UPDATE
+// ============================================================================================================================================
+
+// //here the name with ashu is set to age=20
+// User.updateOne({name:"ashu"},{age:20})
+// .then(res=>console.log(res))
+// .catch(err=>console.log(err))
+
+// //here first the name with ashu is find and print and then age set to 20
+// //print old result
+// User.findOneAndUpdate({name:"ashu"},{age:21})
+// .then(res=>console.log(res))
+// .catch(err=>console.log(err))
+
+// //to print updated result after updation
+// //print new result by using new(option) which is by deafult false , if we make it true it will print updated result
+// User.findOneAndUpdate({name:"ashu"},{age:21},{new:true})
+// .then(res=>console.log(res))
+// .catch(err=>console.log(err))
+
+// User.findById({name:"ashu"},{age:21},{new:true})
+// .then(res=>console.log(res))
+// .catch(err=>console.log(err))
+
+
+// ============================================================================================================================================
+//                                                       UPDATE
+// ============================================================================================================================================
+
+User.deleteOne({name:"ashu"}).then(res=>console.log(res))
+
+User.deleteMany({name:""}).then(res=>console.log(res))
+
+User.findByIdAndDelete("67ac4e9a9c4639158ae1c674").then(res=>console.log(res))
+
+User.findOneAndDelete({name:"ashu"}).then(res=>console.log(res))

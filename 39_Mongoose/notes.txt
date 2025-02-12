@@ -23,15 +23,7 @@ const userSchema = new mongoose.Schema({
     age:Number,
 })
 
-
-
-
-
-
-
 ============================================================================================================================================
-
-
 
 --------------------------operation buffering-----------------------
 In Mongoose, "operation buffering" refers to the ability to start using your Mongoose models to interact with the database immediately, even before the connection to MongoDB is fully established, essentially queuing up operations until the connection is ready to execute them; this is a feature that allows you to start querying data without waiting for the connection to be completely set up. 
