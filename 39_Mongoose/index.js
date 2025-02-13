@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// Note :- Mongoose do not return a promise but we can use .then() with them
+// Note :-  Mongoose do not return a promise but we can use .then() with them
 
 //---------------------------------------------------------------------create connection---------------------------------------------------------------------
 main().
