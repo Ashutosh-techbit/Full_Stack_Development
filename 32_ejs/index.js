@@ -10,8 +10,11 @@ app.set("views",path.join(__dirname,"/views"));
 
 const port = 3000
 
+// express.static(): This function is used to serve static files, like HTML, CSS, JavaScript, images, etc., from a directory. 
 app.use(express.static(path.join(__dirname,"/public/css")));
 app.use(express.static(path.join(__dirname,"/public/js")));
+
+
 //set view(template) engine to ejs
 app.set("view engine","ejs");
 
