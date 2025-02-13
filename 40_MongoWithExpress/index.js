@@ -3,12 +3,14 @@ const app = express();
 const mongoose = require("mongoose");
 const Chat = require("./models/chat.js");
 const path = require("path");
+const methodOverride = require("method-override");
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static(path.join(__dirname,"/public")));
 app.use(express.urlencoded({extended:true})); // to parse the data from html form
+app.use(methodOverride('_method'))
 
 main().catch((err) => console.log(err));
 async function main(params) {
@@ -34,8 +36,8 @@ app.get("/", (req, res) => {
 
 //Index route
 app.get("/chats", async (req, res) => {
-    let chats = await Chat.find(); //using async await bcz chat.find() is a asynchronous fucntion
-    console.log(chats);
+    let chats = await Chat.find() //using async await bcz chat.find() is a asynchronous fucntion
+    // console.log(chats);
     res.render("index.ejs",{chats});
 });
 
@@ -48,7 +50,7 @@ app.get("/chats/new",(req,res)=>{
 
 //send data from new chat form to server(database)
 app.post("/chats",(req,res)=>{
-    let {from , msg , to} = req.body;
+    let {from , msg , to , id} = req.body;
     let newchat = new Chat({
         from:from,
         msg:msg,
@@ -60,6 +62,35 @@ app.post("/chats",(req,res)=>{
     res.redirect("/chats");
 })
 
+//edit request from user
+app.get("/chats/:id/edit", async (req,res)=>{
+    let {id} = req.params;
+    let chat = await Chat.findById(id);
+    res.render("edit.ejs",{chat});
+})
+
+//save edited data to db
+app.put("/chats/:id",async (req,res)=>{
+    let {id} = req.params;
+    let {msg : newMsg} = req.body;
+    console.log(newMsg)
+    let updatedchat = await Chat.findByIdAndUpdate(
+        id,
+        {msg:newMsg},
+        {runValidators :true , new :true},
+    )
+    res.redirect("/chats")
+} )
+
+
+app.delete("/chats/:id",async (req,res)=>{
+     let {id} = req.params;
+    let deletedchat =  await Chat.findByIdAndDelete(id);
+     console.log(deletedchat)
+    res.redirect("/chats")
+
+
+})
 
 app.listen("8080", () => {
   console.log("server is listening on port 8080");

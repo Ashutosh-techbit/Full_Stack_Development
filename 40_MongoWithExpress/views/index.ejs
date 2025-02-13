@@ -1,25 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chats</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <H1>ALL CHATS</H1>
 
     <form action="/chats/new" method="get">
-          <button>Create New Chat</button>
+      <button>Create New Chat</button>
     </form>
+    <br />
 
-   <div class="chats">
-    <%for(let chat of chats){%>
-        <div class="chat"><p>Send by: <%= chat.from %></p>
-            <p class="msg">Message: <%= chat.msg %></p>
-            <p>Recieved by: <%= chat.to %></p></div>
-            <hr>
-         <%}%>
-   </div>
-</body>
+    <div class="chats">
+      <%for(let chat of chats){%>
+      <div class="chat">
+        <p>Send by : <%= chat.from %></p>
+
+        <p class="msg">Message : <%= chat.msg %></p>
+        <form action="/chats/<%= chat._id %>/edit" method="get">
+          <button>Edit</button>
+        </form>
+
+        <p>Recieved by : <%= chat.to %></p>
+        <p>Time : <%= chat.created_at.toString().split(" ")[4] %></p>
+        <p> Date : <%= chat.created_at.toString().split(" ").slice(0,4).join("-")%></p>
+        <p><%= chat.id %></p>
+      </div>
+      <form action="/chats/<%= chat._id %>?_method=DELETE" method="post">
+        <button>Delete</button>
+      </form>
+      <hr />
+      <%}%>
+    </div>
+  </body>
 </html>
