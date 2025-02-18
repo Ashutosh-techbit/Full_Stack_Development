@@ -5,7 +5,7 @@ const chat = require("./models/chat.js")
 
 main().catch(err=>console.log(err));
 
-async function main(params) {
+async function main(params ) {
     await mongoose.connect("mongodb://127.0.0.1:27017/whatsapp")
 }
 
