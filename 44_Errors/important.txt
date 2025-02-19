@@ -1,0 +1,25 @@
+ERROR HANDLING -
+1. error can be handled by external error class file
+
+2. handling in async-await - in asynchronous responses bby default next() will not be called so error cannot be handled to handle those error the throw error statment is written inside next() i.e. next(throw new ExpressError(401,"error occur"))
+
+3. using try-catch
+
+try-catch is bulky to resolve it asyncWrap function is used
+
+4. using wrapAsync function - it wrap a callback and return it in form of function
+--> asyncWrap function is a function whose argument is a also a function and it also return a function
+
+fn() - argument
+
+function asyncWrap(fn){
+    return function(req,res,next){  //return this function which itself contains fn() function
+        fn(req,res,next);
+    }
+}
+
+5. using
+ console.dir(err)-to print error details
+ err.message - message generate during errors
+ err.name - to get specific error name
+      
