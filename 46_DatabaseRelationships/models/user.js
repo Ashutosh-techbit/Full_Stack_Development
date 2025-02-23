@@ -7,6 +7,8 @@ async function main(params) {
       await mongoose.connect("mongodb://127.0.0.1:27017/relationDemo")    
 }
 
+//one to only few
+
 const userSchema = new Schema({
     username: String,
     address : [
