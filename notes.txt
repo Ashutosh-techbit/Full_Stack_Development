@@ -52,3 +52,7 @@ STATE -> Statefull and Stateless
 
 Statefull - save status and session information . Eg - FTP
 Stateless  - save no status and session information . Eg - HTTP
+
+==> Important terms
+//resave 
+//saveUnintialised
