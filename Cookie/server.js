@@ -4,7 +4,17 @@ const users = require("./routes/users")
 const posts = require("./routes/posts")
 const cookieparser = require("cookie-parser")
 
-app.use(cookieparser());
+app.use(cookieparser("secret"));
+
+app.get("/getsignedcookies",(req,res)=>{
+    res.cookie("color","red",{signed:true});
+    res.send("signed cookie sent")
+})
+
+app.get("/verify",(req,res)=>{
+    console.log(req.signedCookies);
+    res.send("verified");
+})
 
 app.get("/getcookies",(req,res)=>{
     res.cookie("name","ashu");
@@ -16,6 +26,8 @@ app.get("/",(req,res)=>{
     console.log(req.cookies);
     res.send("Hi i am root");
 })
+
+
 
 app.get("/greet",(req,res)=>{
     let {name = "anonymous"} = req.cookies;
