@@ -4,12 +4,37 @@ const users = require("./routes/users")
 const posts = require("./routes/posts")
 const cookieparser = require("cookie-parser")
 const session  = require("express-session")
+const flash = require("connect-flash")
+const path = require("path")
+
 
 // ================ Session =============================
+
+app.set("view engine","ejs");
+app.set("views",path.join(__dirname,"views"))
 
 const sessionoptions  = {secret:"mysupersecretstring",resave:false , saveUninitialized:true};
 
 app.use(session(sessionoptions)); //using session as middleware , it creates a session cookie which is saved in the user's browser and contains a unique session identifier that links back to the actual session data stored on the server.
+app.use(flash());
+
+app.get("/register",(req,res)=>{
+    let {name = "anonymous"} = req.query;
+    req.session.name = name;
+    req.flash("success","user successfully registered!!"); //key , pair
+    res.redirect("/hello")
+})
+
+app.get("/hello",(req,res)=>{
+    // res.send(`hello, ${req.session.name}`)
+
+    // res.render("page.ejs",{name:req.session.name,msg:req.flash("success")})
+
+    res.locals.msg = req.flash("success"); //used when a vaiable is need to send to views with render ~
+    res.render("page.ejs",{name:req.session.name})
+
+})
+
 
 app.get("/test",(req,res)=>{
     res.send("test done!!")
@@ -26,15 +51,6 @@ app.get("/response",(req,res)=>{
     res.send(`you send ${req.session.count} requests`);
 })
 
-app.get("/register",(req,res)=>{
-    let {name = "anonymous"} = req.query;
-    req.session.name = name;
-    res.redirect("/hello")
-})
-
-app.get("/hello",(req,res)=>{
-    res.send(`hello, ${req.session.name}`)
-})
 
 
 // ==========COOKIES=====================
